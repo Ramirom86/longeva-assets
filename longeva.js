@@ -241,5 +241,5 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
   ins();setTimeout(ins,900);setTimeout(ins,2100);
 }();
 /* footer siempre al final */
-!function(){function m(){var f=document.querySelector("footer.js-footer")||document.querySelector("footer");if(f&&f.parentNode===document.body&&document.body.lastElementChild!==f){var l=document.querySelectorAll("body > [id^=lg-]");var last=l[l.length-1];if(last&&(f.compareDocumentPosition(last)&4))document.body.appendChild(f)}}m();setTimeout(m,1300);setTimeout(m,2600)}();
+!function(){function m(){var f=document.querySelector("footer.js-footer")||document.querySelector("footer");if(f&&f.parentNode===document.body&&document.body.lastElementChild!==f){var l=document.querySelectorAll("body > [id^=lg-]");var last=l[l.length-1];if(last&&(f.compareDocumentPosition(last)&4))document.body.appendChild(f)}}m();setTimeout(m,1300);setTimeout(m,2600);try{var o=new MutationObserver(m);o.observe(document.body,{childList:true});setTimeout(function(){o.disconnect();m()},9000)}catch(e){}}();
 ;document.body&&document.body.classList.add("lg-ready");
