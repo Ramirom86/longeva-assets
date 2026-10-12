@@ -229,7 +229,7 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
   document.head.appendChild(st);
   var f=document.createElement("div");f.id="lg-ficha";
   f.innerHTML=
-  '<details open><summary>Información nutricional</summary><div class="b"><table><thead><tr><th>Porción: 2 cápsulas</th><th>Cantidad</th><th>% VD (*)</th></tr></thead><tbody>'+
+  '<details><summary>Información nutricional</summary><div class="b"><table><thead><tr><th>Porción: 2 cápsulas</th><th>Cantidad</th><th>% VD (*)</th></tr></thead><tbody>'+
   '<tr><td>Urolitina A</td><td>500 mg</td><td>**</td></tr>'+
   '<tr><td>Magnesio</td><td>42 mg</td><td>16% (19–50 años)<br>18% (+50 años)</td></tr>'+
   '<tr><td>Valor energético</td><td>0 kcal</td><td>0%</td></tr></tbody></table>'+
