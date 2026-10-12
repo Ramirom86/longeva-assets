@@ -64,11 +64,11 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
     "#lg-tb-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}"+
     ".lg-tb-badge{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:#555;background:#f5f2ec;border:1px solid #e0d9ce;padding:5px 10px;border-radius:20px}"+
     ".lg-tb-badge svg{flex-shrink:0}"+
-    "#lg-tb-guarantee{font-size:12.5px;color:#4a4a4a;text-align:center;line-height:1.5}";
+    "#lg-tb-guarantee{font-size:13.5px;font-weight:600;color:#1a4d2e;text-align:center;line-height:1.5}";
   document.head.appendChild(st);
   var wrap=document.createElement("div");
   wrap.id="lg-trust-block";
-  wrap.innerHTML='<div id="lg-tb-guarantee">Garantía de 120 días en el plan · Envío a todo el país · Reservás sin pagar</div>';
+  wrap.innerHTML='<div id="lg-tb-guarantee"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a4d2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-4px;margin-right:7px"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>Envío a todo el país</div>';
   function insert(){
     if(document.getElementById("lg-trust-block"))return;
     var form=document.querySelector(".js-product-form");
@@ -217,7 +217,7 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
   "#lg-ficha th,#lg-ficha td{padding:7px 6px;border-bottom:1px solid #eee;text-align:left;vertical-align:top}"+
   "#lg-ficha th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#6b6b6b;font-weight:600;background:#faf8f4}"+
   "#lg-ficha td:nth-child(2),#lg-ficha th:nth-child(2),#lg-ficha td:nth-child(3),#lg-ficha th:nth-child(3){text-align:right;white-space:nowrap}"+
-  "#lg-ficha .n{font-size:11.5px;color:#777}";
+  "#lg-ficha .n{font-size:11.5px;color:#777}"+"@media(max-width:768px){#lg-ficha summary{font-size:15px;padding:17px 2px}#lg-ficha .b{font-size:15px;line-height:1.6}#lg-ficha table{font-size:14px}#lg-ficha .n{font-size:13px}.user-content.font-small,.user-content.font-small p{font-size:15.5px!important;line-height:1.6!important}#lg-tb-guarantee{font-size:15px!important}.lg-pr-note{font-size:13px!important}}";
   document.head.appendChild(st);
   var f=document.createElement("div");f.id="lg-ficha";
   f.innerHTML=
