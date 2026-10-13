@@ -182,11 +182,11 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
     d.innerHTML='<p class="lg-pr-k">Precio de lanzamiento</p>'+
     '<div class="lg-opt on" data-k="plan" role="radio" aria-checked="true" tabindex="0"><span class="lg-tag">El período de los estudios</span><div class="lg-opt-top"><div class="lg-opt-n">Plan 4 meses<small>4 frascos · $103.975 por mes</small></div><div class="lg-opt-p"><s>$519.600</s>$415.900</div></div><div class="lg-opt-d"><b>3 cuotas sin interés de $138.633</b> · o $374.310 por transferencia<span class="lg-save">Ahorrás 20%</span><br>Incluye garantía de 120 días</div></div>'+
     '<div class="lg-opt" data-k="uno" role="radio" aria-checked="false" tabindex="0"><div class="lg-opt-top"><div class="lg-opt-n">1 frasco<small>60 cápsulas · 1 mes</small></div><div class="lg-opt-p">$129.900</div></div><div class="lg-opt-d">o <b>$116.910</b> por transferencia</div></div>'+
-    '<p class="lg-pr-note">Cupo de lanzamiento: 50 planes. La venta abre con la aprobación de ANMAT; hoy reservás tu precio sin pagar nada.</p>';
+    '<p class="lg-pr-note">Cupo de lanzamiento: 100 planes. La venta abre con la aprobación de ANMAT; hoy reservás tu precio sin pagar nada.</p>';
     f.parentNode.insertBefore(d,f);
     d.addEventListener("click",function(e){var o=e.target.closest(".lg-opt");if(!o)return;sel=o.getAttribute("data-k");[].forEach.call(d.querySelectorAll(".lg-opt"),function(x){var on=x===o;x.classList.toggle("on",on);x.setAttribute("aria-checked",on)})});
     d.addEventListener("keydown",function(e){if((e.key==="Enter"||e.key===" ")&&e.target.classList.contains("lg-opt")){e.preventDefault();e.target.click()}});
-    var sc=document.getElementById("lg-tb-scarcity");if(sc)sc.innerHTML='<span id="lg-tb-dot"></span>Cupo de lanzamiento: <strong>50 planes</strong> · Sin compromiso';
+    var sc=document.getElementById("lg-tb-scarcity");if(sc)sc.innerHTML='<span id="lg-tb-dot"></span>Cupo de lanzamiento: <strong>100 planes</strong> · Sin compromiso';
   }
   pricing();setTimeout(pricing,800);setTimeout(pricing,2000);
 
