@@ -374,3 +374,77 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
   }
   ins();setTimeout(ins,900);
 }();
+
+/* LONGEVA · tarjetas de beneficios bajo la galería (página de producto) */
+!function(){
+  if(!/\/producto|\/products|\/p\//.test(location.pathname))return;
+  if(document.getElementById("lg-tiles"))return;
+  var G="#1a4d2e",D="#c9a24b";
+  var st=document.createElement("style");
+  st.textContent="#lg-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 6px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}"+
+  ".lgt{background:#eef3ec;border-radius:14px;padding:14px 8px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}"+
+  ".lgt svg{width:30px;height:30px}"+
+  ".lgt b{display:block;font-family:Georgia,serif;font-size:19px;font-weight:400;color:"+G+";line-height:1.1}"+
+  ".lgt span{font-size:12px;line-height:1.3;color:#4a4a4a}"+
+  "@media(max-width:480px){#lg-tiles{gap:8px;margin:10px 0 4px}.lgt{padding:12px 6px 10px}.lgt b{font-size:17px}.lgt span{font-size:11.5px}}";
+  document.head.appendChild(st);
+  var cap='<svg viewBox="0 0 32 32" aria-hidden="true"><g transform="rotate(-35 16 16)"><rect x="5" y="11" width="22" height="10" rx="5" fill="none" stroke="'+G+'" stroke-width="2"/><path d="M16 11h6a5 5 0 0 1 0 10h-6z" fill="'+D+'"/></g></svg>';
+  var day='<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="6" fill="'+D+'"/><g stroke="'+G+'" stroke-width="2" stroke-linecap="round"><path d="M16 3v4M16 25v4M3 16h4M25 16h4M6.8 6.8l2.8 2.8M22.4 22.4l2.8 2.8M6.8 25.2l2.8-2.8M22.4 9.6l2.8-2.8"/></g></svg>';
+  var shield='<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 4v8c0 7-5 12-11 14C10 27 5 22 5 15V7z" fill="none" stroke="'+G+'" stroke-width="2" stroke-linejoin="round"/><path d="M11 16l3.5 3.5L21 13" fill="none" stroke="'+D+'" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var t=document.createElement("div");t.id="lg-tiles";
+  t.innerHTML='<div class="lgt">'+cap+'<b>500 mg</b><span>la dosis de los estudios</span></div>'+
+    '<div class="lgt">'+day+'<b>2 cápsulas</b><span>al día, con una comida</span></div>'+
+    '<div class="lgt">'+shield+'<b>120 días</b><span>de garantía en el Plan 4 meses</span></div>';
+  function ins(){
+    if(document.getElementById("lg-tiles"))return;
+    var sw=document.querySelector(".js-swiper-product");if(!sw||!sw.parentElement)return;
+    var par=sw.parentElement,after=sw;
+    var nx=sw.nextElementSibling;if(nx&&/no-gutters/.test(nx.className))after=nx;
+    par.insertBefore(t,after.nextSibling);
+  }
+  ins();setTimeout(ins,900);setTimeout(ins,2100);
+}();
+
+/* LONGEVA · ilustraciones en "¿Qué cambia en tu cuerpo?" */
+!function(){
+  var BASE=window._lgBcBase||('https://cdn.jsdelivr.net/gh/Ramirom86/longeva-assets@'+(window._lgV||'main')+'/');
+  var IM=['etapa-1-card.webp','etapa-2-card.webp','etapa-4-card.webp','etapa-5-card.webp'];
+  var ALT=['Mitocondria gastada siendo reciclada','Mitocondrias nuevas produciendo energía','Fibras musculares con energía de las mitocondrias','Reloj de arena con energía que no se agota'];
+  if(!document.getElementById('lg-bcm-css')){var st=document.createElement('style');st.id='lg-bcm-css';
+  st.textContent='.lg-bc-media{position:relative;margin:-28px -26px 18px;height:170px;overflow:hidden;border-radius:18px 18px 0 0;background:#1a4d2e}'+
+  '.lg-bc-media img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:50% 50%;animation:lgBcZoom 9s ease-in-out infinite alternate}'+
+  '.lg-bc-media:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(201,162,75,.28),rgba(201,162,75,0) 60%);animation:lgBcGlow 3.2s ease-in-out infinite;pointer-events:none}'+
+  '.lg-bc-media .lg-bc-wk{position:absolute;left:14px;top:12px;font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#0d2318;background:#c9a24b;border-radius:99px;padding:4px 10px;z-index:1}'+
+  '.lg-bc-card.lg-bc-hasimg .lg-bc-top{display:none}'+
+  '@keyframes lgBcZoom{from{transform:scale(1)}to{transform:scale(1.1)}}'+
+  '@keyframes lgBcGlow{0%,100%{opacity:.35}50%{opacity:1}}'+
+  '@media(max-width:600px){.lg-bc-media{height:150px}}';
+  document.head.appendChild(st)}
+  function run(){
+    var cards=document.querySelectorAll('#lg-body-changes .lg-bc-card');if(!cards.length)return false;
+    [].forEach.call(cards,function(c){var i=+c.getAttribute('data-idx');if(i>3||!IM[i]||c.classList.contains('lg-bc-hasimg'))return;
+      var wk=c.querySelector('.lg-bc-label');var m=document.createElement('div');m.className='lg-bc-media';
+      m.innerHTML='<span class="lg-bc-wk">'+(wk?wk.textContent:'')+'</span><img src="'+BASE+IM[i]+'" alt="'+ALT[i]+'" loading="lazy" decoding="async" width="600" height="400">';
+      c.insertBefore(m,c.firstChild);c.classList.add('lg-bc-hasimg')});
+    return true}
+  if(!run()){var n=0,iv=setInterval(function(){if(run()||++n>20)clearInterval(iv)},500)}
+}();
+
+/* LONGEVA · ilustraciones en "Qué aporta cada ingrediente" */
+!function(){
+  var BASE=window._lgBcBase||('https://cdn.jsdelivr.net/gh/Ramirom86/longeva-assets@'+(window._lgV||'main')+'/');
+  var MAP=[['.lg-syn-card-uro','ing-urolitina.webp','Cápsula de urolitina A liberando mitocondrias'],['.lg-syn-card-mag','ing-magnesio.webp','Cristal de glicinato de magnesio']];
+  if(!document.getElementById('lg-syni-css')){var st=document.createElement('style');st.id='lg-syni-css';
+  st.textContent='.lg-syn-ingimg{width:170px;height:170px;margin:0 auto 6px;position:relative}'+
+  '.lg-syn-ingimg img{width:100%;height:100%;display:block;animation:lgSynFloat 5s ease-in-out infinite}'+
+  '.lg-syn-ingimg:before{content:"";position:absolute;inset:18%;border-radius:50%;background:radial-gradient(circle,rgba(201,162,75,.45),rgba(201,162,75,0) 70%);animation:lgSynGlow 3.4s ease-in-out infinite}'+
+  '@keyframes lgSynFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(2deg)}}'+
+  '@keyframes lgSynGlow{0%,100%{transform:scale(.85);opacity:.5}50%{transform:scale(1.15);opacity:1}}'+
+  '@media(max-width:600px){.lg-syn-ingimg{width:150px;height:150px}}';
+  document.head.appendChild(st)}
+  function run(){var done=0;MAP.forEach(function(m){var card=document.querySelector('#lg-synergy '+m[0]);if(!card)return;if(card.querySelector('.lg-syn-ingimg')){done++;return}
+    var ic=card.querySelector('.lg-syn-icon');var d=document.createElement('div');d.className='lg-syn-ingimg';
+    d.innerHTML='<img src="'+BASE+m[1]+'" alt="'+m[2]+'" loading="lazy" decoding="async" width="360" height="360">';
+    if(ic){ic.parentNode.replaceChild(d,ic)}else{card.insertBefore(d,card.firstChild)}done++});return done===MAP.length}
+  if(!run()){var n=0,iv=setInterval(function(){if(run()||++n>20)clearInterval(iv)},500)}
+}();
