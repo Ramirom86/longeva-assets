@@ -354,7 +354,7 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
    '</div>'+
    '<div class="lgv-rows">'+
     row(iGear,"Qué hace","Repone NAD+","Recicla y renueva tus mitocondrias")+
-    row(iBars,"En humanos","Resultados variables","Ensayos clínicos en fuerza muscular")+
+    row(iBars,"En humanos","Resultados variables","Estudiada en ensayos en humanos")+
     row(iCaps,"Dosis","Sin dosis definida","500 mg, la dosis de los estudios")+
    '</div>'+
    '<div class="lgv-cta"><a class="lgv-btn" href="/productos/longeva-urolitina-a-500mg-acceso-anticipado/">'+CTA+'</a></div>'+
@@ -446,5 +446,36 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
     var ic=card.querySelector('.lg-syn-icon');var d=document.createElement('div');d.className='lg-syn-ingimg';
     d.innerHTML='<img src="'+BASE+m[1]+'" alt="'+m[2]+'" loading="lazy" decoding="async" width="360" height="360">';
     if(ic){ic.parentNode.replaceChild(d,ic)}else{card.insertBefore(d,card.firstChild)}done++});return done===MAP.length}
+  if(!run()){var n=0,iv=setInterval(function(){if(run()||++n>20)clearInterval(iv)},500)}
+}();
+
+/* LONGEVA · franja de estilo de vida (solo home) — imagen ilustrativa, nunca con testimonios */
+!function(){
+  if(!document.body.classList.contains('template-home'))return;
+  var SRC=(window._lgBcBase||('https://cdn.jsdelivr.net/gh/Ramirom86/longeva-assets@'+(window._lgV||'main')+'/'))+'estilo-vida.webp';
+  if(!document.getElementById('lg-life-css')){var st=document.createElement('style');st.id='lg-life-css';
+  st.textContent='#lg-life{position:relative;overflow:hidden;min-height:460px;display:flex;align-items:center;background:#0d2318}'+
+  '#lg-life img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%;animation:lgLifeZoom 18s ease-in-out infinite alternate}'+
+  '#lg-life:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(13,35,24,.82) 0%,rgba(13,35,24,.55) 38%,rgba(13,35,24,0) 62%)}'+
+  '#lg-life .lgl-in{position:relative;z-index:2;max-width:1140px;width:100%;margin:0 auto;padding:60px 24px}'+
+  '#lg-life .lgl-box{max-width:440px}'+
+  '#lg-life .lgl-k{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:#c9a24b;margin:0 0 14px}'+
+  '#lg-life .lgl-t{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:40px;line-height:1.15;color:#fff;margin:0 0 16px}'+
+  '#lg-life .lgl-p{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:rgba(255,255,255,.86);margin:0}'+
+  '#lg-life .lgl-n{position:absolute;right:12px;bottom:10px;z-index:2;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:10px;color:rgba(255,255,255,.55)}'+
+  '@keyframes lgLifeZoom{from{transform:scale(1)}to{transform:scale(1.07)}}'+
+  '@media(max-width:700px){#lg-life{min-height:520px;align-items:flex-start}#lg-life img{object-position:72% 50%}'+
+  '#lg-life:before{background:linear-gradient(180deg,rgba(13,35,24,.88) 0%,rgba(13,35,24,.6) 40%,rgba(13,35,24,0) 70%)}'+
+  '#lg-life .lgl-in{padding:44px 20px}#lg-life .lgl-t{font-size:30px}#lg-life .lgl-p{font-size:15px}}';
+  document.head.appendChild(st)}
+  function run(){
+    if(document.getElementById('lg-life'))return true;
+    var ref=document.getElementById('lg-synergy');if(!ref)return false;
+    var s=document.createElement('section');s.id='lg-life';
+    s.innerHTML='<img src="'+SRC+'" alt="Hombre de unos 50 años caminando por un sendero de sierras al atardecer" loading="lazy" decoding="async" width="1024" height="572">'+
+      '<div class="lgl-in"><div class="lgl-box"><p class="lgl-k">Longevidad</p><h2 class="lgl-t">No se trata de sumar años.</h2>'+
+      '<p class="lgl-p">Se trata de seguir haciendo lo que te gusta, con la energía para disfrutarlo.</p></div></div>'+
+      '<span class="lgl-n">Imagen ilustrativa</span>';
+    ref.parentNode.insertBefore(s,ref.nextSibling);return true}
   if(!run()){var n=0,iv=setInterval(function(){if(run()||++n>20)clearInterval(iv)},500)}
 }();
