@@ -559,3 +559,26 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
     return true}
   if(!build()){var n=0,iv=setInterval(function(){if(build()||++n>30)clearInterval(iv)},500)}
 }();
+
+/* LONGEVA · accesos visibles al panel del estudio */
+!function(){
+  if(!document.getElementById('lgx-open-css')){var st=document.createElement('style');st.id='lgx-open-css';
+  st.textContent='.lgx-open{display:inline-flex;align-items:center;gap:6px;background:none;border:0;padding:0;margin-top:12px;font:inherit;font-size:13px;font-weight:700;color:#c9a24b;cursor:pointer;border-bottom:1px solid rgba(201,162,75,.5);line-height:1.5}'+
+  '.lgx-open:hover{color:#e0bb64;border-bottom-color:#e0bb64}'+
+  '.lgx-open.lgx-dark{color:#1a4d2e;border-bottom-color:rgba(26,77,46,.4)}'+
+  '.lgx-open.lgx-dark:hover{color:#0d2318}'+
+  '#lgx-open-prod{display:block;text-align:center;margin:4px auto 18px;width:max-content}';
+  document.head.appendChild(st)}
+  function mk(cls,id){var b=document.createElement('button');b.type='button';b.className='lgx-open'+(cls?' '+cls:'');if(id)b.id=id;b.innerHTML='Ver cómo se hizo el estudio &rarr;';
+    b.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();window.lgOpenStudyPanel&&window.lgOpenStudyPanel()});return b}
+  function run(){
+    if(!window.lgOpenStudyPanel)return false;var done=0;
+    var c=document.querySelector('#lg-body-changes .lg-bc-card[data-idx="2"]');
+    if(c){if(!c.querySelector('.lgx-open')){var body=c.querySelector('p')||c;body.parentNode.insertBefore(mk(),body.nextSibling)}done++}
+    var l=document.querySelector('a.lg-rsh-study-link[href*="xcrm"]');
+    if(l){if(!l.parentNode.querySelector('.lgx-open')){var b=mk('lgx-dark');b.style.marginRight='18px';l.parentNode.insertBefore(b,l)}done++}
+    var t=document.getElementById('lg-tiles');
+    if(t){if(!document.getElementById('lgx-open-prod'))t.parentNode.insertBefore(mk('lgx-dark','lgx-open-prod'),t.nextSibling);done++}
+    return done>0&&(c||!document.getElementById('lg-body-changes'))&&(t||!/\/producto|\/products|\/p\//.test(location.pathname))}
+  run();var n=0,iv=setInterval(function(){run();if(++n>24)clearInterval(iv)},500)
+}();
