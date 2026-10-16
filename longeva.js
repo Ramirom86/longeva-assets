@@ -408,8 +408,8 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
 /* LONGEVA · ilustraciones en "¿Qué cambia en tu cuerpo?" */
 !function(){
   var BASE=window._lgBcBase||('https://cdn.jsdelivr.net/gh/Ramirom86/longeva-assets@'+(window._lgV||'main')+'/');
-  var IM=['etapa-1-card.webp','etapa-2-card.webp','etapa-4-card.webp','etapa-5-card.webp'];
-  var ALT=['Mitocondria gastada siendo reciclada','Mitocondrias nuevas produciendo energía','Fibras musculares con energía de las mitocondrias','Reloj de arena con energía que no se agota'];
+  var IM=['etapa-1-card.webp','etapa-2-card.webp','etapa-4-card.webp','etapa-5-card.webp','etapa-6-card.webp'];
+  var ALT=['Mitocondria gastada siendo reciclada','Mitocondrias nuevas produciendo energía','Fibras musculares con energía de las mitocondrias','Reloj de arena con energía que no se agota','Célula sana con mitocondrias renovadas'];
   if(!document.getElementById('lg-bcm-css')){var st=document.createElement('style');st.id='lg-bcm-css';
   st.textContent='.lg-bc-media{position:relative;margin:-28px -26px 18px;height:170px;overflow:hidden;border-radius:18px 18px 0 0;background:#1a4d2e}'+
   '.lg-bc-media img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:50% 50%;animation:lgBcZoom 9s ease-in-out infinite alternate}'+
@@ -422,7 +422,7 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
   document.head.appendChild(st)}
   function run(){
     var cards=document.querySelectorAll('#lg-body-changes .lg-bc-card');if(!cards.length)return false;
-    [].forEach.call(cards,function(c){var i=+c.getAttribute('data-idx');if(i>3||!IM[i]||c.classList.contains('lg-bc-hasimg'))return;
+    [].forEach.call(cards,function(c){var i=+c.getAttribute('data-idx');if(i>4||!IM[i]||c.classList.contains('lg-bc-hasimg'))return;
       var wk=c.querySelector('.lg-bc-label');var m=document.createElement('div');m.className='lg-bc-media';
       m.innerHTML='<span class="lg-bc-wk">'+(wk?wk.textContent:'')+'</span><img src="'+BASE+IM[i]+'" alt="'+ALT[i]+'" loading="lazy" decoding="async" width="600" height="400">';
       c.insertBefore(m,c.firstChild);c.classList.add('lg-bc-hasimg')});
