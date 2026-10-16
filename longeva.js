@@ -586,7 +586,7 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
 /* LONGEVA · tarjetas de "Qué aporta cada ingrediente" con la misma altura */
 !function(){
   function eq(){var c=[].map.call(document.querySelectorAll('#lg-synergy .lg-syn-slide'),function(s){return s.firstElementChild}).filter(Boolean);if(!c.length)return false;
-    c.forEach(function(e){e.style.minHeight=''});var h=0;c.forEach(function(e){h=Math.max(h,e.offsetHeight)});c.forEach(function(e){e.style.minHeight=h+'px'});return h>0}
+    c.forEach(function(e){e.style.minHeight=''});if(window.innerWidth>768)c=c.filter(function(e){return !e.classList.contains('lg-syn-result-slide')});var h=0;c.forEach(function(e){h=Math.max(h,e.offsetHeight)});c.forEach(function(e){e.style.minHeight=h+'px'});return h>0}
   var n=0,iv=setInterval(function(){eq();if(++n>12)clearInterval(iv)},700);
   var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(eq,200)});
 }();
@@ -599,7 +599,9 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
   '#lg-synergy .lg-syn-result-slide .lg-syn-card-title{color:#F8F3EC!important}'+
   '#lg-synergy .lg-syn-result-slide p{color:rgba(248,243,236,.82)!important}'+
   '#lg-synergy .lg-syn-result-slide p strong{color:#F8F3EC}'+
-  '#lg-synergy .lg-syn-result-slide .lg-syn-ingimg{flex-shrink:0;margin:0 auto 6px}';
+  '#lg-synergy .lg-syn-result-slide .lg-syn-ingimg{flex-shrink:0;margin:0 auto 6px}'+
+  '#lg-synergy .lg-syn-card .lg-syn-result-text{margin-top:auto!important}'+
+  '@media(min-width:769px){#lg-synergy .lg-syn-result-slide{align-items:center!important}#lg-synergy .lg-syn-result-slide .lg-syn-ingimg{margin:0}}';
   document.head.appendChild(st)}
   function run(){var s=document.querySelector('#lg-synergy .lg-syn-result-slide');if(!s)return false;
     if(s.querySelector('.lg-syn-ingimg'))return true;var ic=s.querySelector('.lg-syn-icon');if(!ic)return false;
