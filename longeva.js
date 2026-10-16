@@ -454,19 +454,19 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
   if(!document.body.classList.contains('template-home'))return;
   var SRC=(window._lgBcBase||('https://cdn.jsdelivr.net/gh/Ramirom86/longeva-assets@'+(window._lgV||'main')+'/'))+'estilo-vida.webp';
   if(!document.getElementById('lg-life-css')){var st=document.createElement('style');st.id='lg-life-css';
-  st.textContent='#lg-life{position:relative;overflow:hidden;min-height:460px;display:flex;align-items:center;background:#0d2318}'+
-  '#lg-life img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%;animation:lgLifeZoom 18s ease-in-out infinite alternate}'+
+  st.textContent='#lg-life{position:relative;overflow:hidden;min-height:clamp(460px,42vw,640px);display:flex;align-items:center;background:#0d2318}'+
+  '#lg-life img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 28%;transform-origin:70% 30%;animation:lgLifeZoom 18s ease-in-out infinite alternate}'+
   '#lg-life:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(13,35,24,.82) 0%,rgba(13,35,24,.55) 38%,rgba(13,35,24,0) 62%)}'+
   '#lg-life .lgl-in{position:relative;z-index:2;max-width:1140px;width:100%;margin:0 auto;padding:60px 24px}'+
-  '#lg-life .lgl-box{max-width:440px}'+
+  '#lg-life .lgl-box{max-width:520px}'+
   '#lg-life .lgl-k{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:#c9a24b;margin:0 0 14px}'+
   '#lg-life .lgl-t{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:40px;line-height:1.15;color:#fff;margin:0 0 16px}'+
   '#lg-life .lgl-p{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:rgba(255,255,255,.86);margin:0}'+
   '#lg-life .lgl-n{position:absolute;right:12px;bottom:10px;z-index:2;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:10px;color:rgba(255,255,255,.55)}'+
   '@keyframes lgLifeZoom{from{transform:scale(1)}to{transform:scale(1.07)}}'+
-  '@media(max-width:700px){#lg-life{min-height:520px;align-items:flex-start}#lg-life img{object-position:72% 50%}'+
-  '#lg-life:before{background:linear-gradient(180deg,rgba(13,35,24,.88) 0%,rgba(13,35,24,.6) 40%,rgba(13,35,24,0) 70%)}'+
-  '#lg-life .lgl-in{padding:44px 20px}#lg-life .lgl-t{font-size:30px}#lg-life .lgl-p{font-size:15px}}';
+  '@media(max-width:700px){#lg-life{display:block;min-height:0}#lg-life img{position:relative;height:320px;object-position:72% 30%}'+
+  '#lg-life:before{bottom:auto;height:320px;background:linear-gradient(180deg,rgba(13,35,24,0) 60%,#0d2318 100%)}'+
+  '#lg-life .lgl-in{padding:8px 20px 44px}#lg-life .lgl-t{font-size:30px}#lg-life .lgl-p{font-size:15px}#lg-life .lgl-n{top:296px;bottom:auto}}';
   document.head.appendChild(st)}
   function run(){
     if(document.getElementById('lg-life'))return true;
