@@ -613,24 +613,28 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
 
 /* LONGEVA · botones de compra unificados (dorado + destello) */
 !function(){
-  var SEL='#lg-hero-btn,.lg-bc-cta,.lgv-btn,#lg-wl-btn-main,.lg-wl-btn,input.js-addtocart,input.btn-add-to-cart';
+  var SEL='#lg-hero-btn,.lg-bc-cta,.lgv-btn,#lg-wl-btn-main,.lg-wl-btn,.lg-cta-wrap';
+  var B=SEL.split(',').map(function(s){return 'body '+s});
   if(!document.getElementById('lg-cta-css')){var st=document.createElement('style');st.id='lg-cta-css';
-  var S=SEL.split(',').map(function(s){return 'body '+s}).join(',');
-  st.textContent=S+'{display:inline-block!important;box-sizing:border-box!important;border:0!important;border-radius:4px!important;'+
-  'background-color:#c9a84c!important;background-image:linear-gradient(110deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.55) 50%,rgba(255,255,255,0) 60%),linear-gradient(135deg,#c9a84c 0%,#e8c96d 100%)!important;'+
-  'background-size:250% 100%,100% 100%!important;background-repeat:no-repeat!important;background-position:200% 0,0 0!important;'+
+  st.textContent=B.join(',')+'{position:relative!important;overflow:hidden!important;display:inline-block!important;box-sizing:border-box!important;border:0!important;border-radius:4px!important;'+
+  'background:linear-gradient(135deg,#c9a84c 0%,#e8c96d 100%)!important;'+
   'color:#0d2318!important;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif!important;font-weight:800!important;font-size:13px!important;letter-spacing:2px!important;text-transform:uppercase!important;line-height:1.35!important;'+
   'text-align:center!important;text-decoration:none!important;padding:18px 36px!important;cursor:pointer!important;box-shadow:0 8px 22px rgba(201,168,76,.28)!important;'+
-  'transition:transform .2s ease,box-shadow .2s ease!important;animation:lgCtaShine 3.6s ease-in-out infinite!important}'+
-  SEL.split(',').map(function(s){return 'body '+s+':hover'}).join(',')+'{transform:translateY(-2px)!important;box-shadow:0 12px 28px rgba(201,168,76,.4)!important}'+
-  'body input.js-addtocart,body input.btn-add-to-cart{display:block!important;width:100%!important}'+
-  '@keyframes lgCtaShine{0%{background-position:200% 0,0 0}55%,100%{background-position:-100% 0,0 0}}'+
-  '@media(max-width:600px){'+SEL.split(',').map(function(s){return 'body '+s}).join(',')+'{padding:16px 22px!important;font-size:12px!important;letter-spacing:1.6px!important}}';
+  'transition:transform .2s ease,box-shadow .2s ease!important;animation:none!important}'+
+  B.map(function(s){return s+':after'}).join(',')+'{content:""!important;position:absolute!important;top:0!important;left:-60%;width:40%!important;height:100%!important;pointer-events:none!important;'+
+  'background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent)!important;animation:lgCtaShine 3.2s ease-in-out infinite!important;display:block!important}'+
+  B.map(function(s){return s+':hover'}).join(',')+'{transform:translateY(-2px)!important;box-shadow:0 12px 28px rgba(201,168,76,.4)!important}'+
+  'body .lg-cta-wrap{display:block!important;width:100%!important;padding:0!important}'+
+  'body .lg-cta-wrap input{display:block!important;width:100%!important;background:transparent!important;border:0!important;box-shadow:none!important;color:#0d2318!important;font:inherit!important;letter-spacing:inherit!important;text-transform:uppercase!important;padding:18px 24px!important;cursor:pointer!important;margin:0!important}'+
+  '@keyframes lgCtaShine{0%,55%{left:-60%}100%{left:130%}}'+
+  '@media(max-width:600px){'+B.join(',')+'{padding:16px 22px!important;font-size:12px!important;letter-spacing:1.6px!important}body .lg-cta-wrap{padding:0!important}body .lg-cta-wrap input{padding:16px 18px!important}}';
   document.head.appendChild(st)}
   function run(){
-    [].forEach.call(document.querySelectorAll(SEL),function(e){
-      if(e.tagName==='INPUT'&&e.dataset.lgPatched&&!e.dataset.lgCta){e.dataset.lgCta='1';e.style.cssText=''}
-      if(e.id==='lg-hero-btn'&&!e.dataset.lgCta){e.dataset.lgCta='1';e.innerHTML=e.innerHTML.replace(/^\s*(&#9654;|▶)(&nbsp;|\s)*/,'')}
+    var h=document.getElementById('lg-hero-btn');
+    if(h&&!h.dataset.lgCta){h.dataset.lgCta='1';h.innerHTML=h.innerHTML.replace(/^\s*(&#9654;|\u25B6)(&nbsp;|\s)*/,'')}
+    [].forEach.call(document.querySelectorAll('input.js-addtocart,input.btn-add-to-cart'),function(e){
+      if(e.dataset.lgPatched&&e.style.cssText)e.style.cssText='';
+      if(!e.parentNode.classList.contains('lg-cta-wrap')){var w=document.createElement('span');w.className='lg-cta-wrap';e.parentNode.insertBefore(w,e);w.appendChild(e)}
     })}
   run();var n=0,iv=setInterval(function(){run();if(++n>12)clearInterval(iv)},600);
 }();
