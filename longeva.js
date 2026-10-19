@@ -621,12 +621,12 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
   'color:#0d2318!important;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif!important;font-weight:800!important;font-size:13px!important;letter-spacing:2px!important;text-transform:uppercase!important;line-height:1.35!important;'+
   'text-align:center!important;text-decoration:none!important;padding:18px 36px!important;cursor:pointer!important;box-shadow:0 8px 22px rgba(201,168,76,.28)!important;'+
   'transition:transform .2s ease,box-shadow .2s ease!important;animation:none!important}'+
-  B.map(function(s){return s+':after'}).join(',')+'{content:""!important;position:absolute!important;top:0!important;left:-60%;width:40%!important;height:100%!important;pointer-events:none!important;'+
+  B.map(function(s){return s+':after'}).join(',')+'{content:""!important;position:absolute!important;top:0!important;left:0!important;width:40%!important;transform:translateX(-160%);will-change:transform;height:100%!important;pointer-events:none!important;'+
   'background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent)!important;animation:lgCtaShine 3.2s ease-in-out infinite!important;display:block!important}'+
   B.map(function(s){return s+':hover'}).join(',')+'{transform:translateY(-2px)!important;box-shadow:0 12px 28px rgba(201,168,76,.4)!important}'+
   'body .lg-cta-wrap{display:block!important;width:100%!important;padding:0!important}'+
   'body .lg-cta-wrap input{display:block!important;width:100%!important;background:transparent!important;border:0!important;box-shadow:none!important;color:#0d2318!important;font:inherit!important;letter-spacing:inherit!important;text-transform:uppercase!important;padding:18px 24px!important;cursor:pointer!important;margin:0!important}'+
-  '@keyframes lgCtaShine{0%,55%{left:-60%}100%{left:130%}}'+
+  '@keyframes lgCtaShine{0%,55%{transform:translateX(-160%)}100%{transform:translateX(330%)}}'+
   '@media(max-width:600px){'+B.join(',')+'{padding:16px 22px!important;font-size:12px!important;letter-spacing:1.6px!important}body .lg-cta-wrap{padding:0!important}body .lg-cta-wrap input{padding:16px 18px!important}}';
   document.head.appendChild(st)}
   function run(){
