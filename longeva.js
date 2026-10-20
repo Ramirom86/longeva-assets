@@ -467,7 +467,7 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
   '@keyframes lgLifeZoom{from{transform:scale(1)}to{transform:scale(1.07)}}'+
   '@media(max-width:700px){#lg-life{display:block;min-height:0}#lg-life img{position:relative;height:320px;object-position:72% 30%;animation:none;transform:none}'+
   '#lg-life:before{bottom:auto;height:320px;background:linear-gradient(180deg,rgba(13,35,24,0) 55%,#0d2318 100%)}'+
-  '#lg-life .lgl-in{padding:8px 20px 44px}#lg-life .lgl-t{font-size:30px}#lg-life .lgl-p{font-size:15px}#lg-life .lgl-n{top:296px;bottom:auto}}';
+  '#lg-life .lgl-in{padding:8px 20px 20px}#lg-founder{padding-top:12px!important}#lg-life .lgl-t{font-size:30px}#lg-life .lgl-p{font-size:15px}#lg-life .lgl-n{top:296px;bottom:auto}}';
   document.head.appendChild(st)}
   function run(){
     if(document.getElementById('lg-life'))return true;
