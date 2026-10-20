@@ -639,3 +639,23 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
     })}
   run();var n=0,iv=setInterval(function(){run();if(++n>12)clearInterval(iv)},600);
 }();
+
+/* LONGEVA · carrusel de investigación sin espacios muertos en celular */
+!function(){
+  if(!document.getElementById('lg-rsh-fit-css')){var st=document.createElement('style');st.id='lg-rsh-fit-css';
+  st.textContent='@media(max-width:768px){#lg-researchers{padding-top:44px!important;padding-bottom:40px!important}'+
+  '#lg-researchers .lg-rsh-header{margin-bottom:28px!important}'+
+  '#lg-rsh-track{align-items:flex-start!important}'+
+  '#lg-researchers .lg-rsh-viewport{overflow:hidden}'+
+  '#lg-researchers .lg-rsh-controls{margin-top:18px!important}}';
+  document.head.appendChild(st)}
+  function fit(){
+    var tr=document.getElementById('lg-rsh-track');if(!tr)return false;var vp=tr.parentElement;
+    if(window.innerWidth>768){vp.style.height='';return true}
+    var m=/translateX\(-(\d+)/.exec(tr.style.transform||'');var i=m?Math.round(parseInt(m[1],10)/100):0;
+    var s=tr.children[i]||tr.children[0];if(s)vp.style.height=s.offsetHeight+'px';return true}
+  function init(){var tr=document.getElementById('lg-rsh-track');if(!tr||tr._lgFit)return!!tr;tr._lgFit=1;
+    new MutationObserver(fit).observe(tr,{attributes:true,attributeFilter:['style']});
+    window.addEventListener('resize',fit);[].forEach.call(tr.querySelectorAll('img'),function(im){im.addEventListener('load',fit)});fit();setTimeout(fit,800);setTimeout(fit,2500);return true}
+  var n=0;if(!init()){var iv=setInterval(function(){if(init()||++n>30)clearInterval(iv)},500)}
+}();
