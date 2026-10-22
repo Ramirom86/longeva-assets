@@ -659,3 +659,10 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
     window.addEventListener('resize',fit);[].forEach.call(tr.querySelectorAll('img'),function(im){im.addEventListener('load',fit)});fit();setTimeout(fit,800);setTimeout(fit,2500);return true}
   var n=0;if(!init()){var iv=setInterval(function(){if(init()||++n>30)clearInterval(iv)},500)}
 }();
+
+/* LONGEVA · celular: carruseles sin flechas (solo puntos + deslizar) */
+!function(){if(document.getElementById('lg-noarrows-css'))return;var s=document.createElement('style');s.id='lg-noarrows-css';
+s.textContent='@media(max-width:767px){#lg-bc-prev,#lg-bc-next,#lg-rsh-prev,#lg-rsh-next{display:none!important}'+
+'.lg-bc-nav{margin-top:18px!important;gap:0!important}.lg-rsh-controls{margin-top:14px!important;gap:0!important}'+
+'#lg-body-changes .lg-bc-track-wrap,#lg-rsh-track{touch-action:pan-y}}';
+document.head.appendChild(s)}();
