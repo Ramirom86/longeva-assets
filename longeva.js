@@ -671,3 +671,14 @@ document.head.appendChild(s)}();
 s.textContent='@media(max-width:767px){#lg-researchers{padding-top:36px!important;padding-bottom:32px!important}#lg-researchers .lg-rsh-header{margin-bottom:18px!important}#lg-researchers .lg-rsh-title{font-size:24px!important}#lg-researchers .lg-rsh-slide{gap:14px!important}#lg-researchers .lg-rsh-photo,#lg-researchers .lg-rsh-photo-wrap{height:240px!important}#lg-researchers .lg-rsh-photo-wrap>.lg-tl{height:100%!important;min-height:0!important}#lg-researchers .lg-rsh-content{padding:6px 12px 6px!important}#lg-researchers .lg-rsh-journal{margin-bottom:10px!important}#lg-researchers .lg-rsh-quote{font-size:18px!important;line-height:1.45!important;margin-bottom:18px!important}#lg-researchers .lg-rsh-role{margin-bottom:12px!important}#lg-researchers .lg-rsh-inner>p{margin-top:18px!important}'+
 '#lg-body-changes{padding-top:44px!important;padding-bottom:36px!important}#lg-body-changes .lg-bc-hdr{margin-bottom:24px!important}#lg-body-changes .lg-bc-sub{font-size:14px!important;line-height:1.5!important}#lg-body-changes .lg-bc-footer{margin-top:22px!important}#lg-body-changes .lg-bc-footnote{margin-top:10px!important}}';
 document.head.appendChild(s);setTimeout(function(){window.dispatchEvent(new Event('resize'))},300)}();
+
+/* LONGEVA · "Qué hace en tu cuerpo": todas las tarjetas con la misma altura */
+!function(){
+  function eq(){var w=document.querySelector('#lg-body-changes .lg-bc-track-wrap');if(!w)return false;
+    var cs=[].slice.call(w.querySelectorAll('.lg-bc-card'));if(!cs.length)return false;var mx=0;
+    cs.forEach(function(c){c.style.minHeight='';var o=c.style.display,v=c.style.visibility;c.style.setProperty('display','block','important');c.style.visibility='hidden';
+      if(c.classList.contains('lg-bc-active'))c.style.visibility=v;mx=Math.max(mx,c.offsetHeight);c.style.display=o;c.style.visibility=v});
+    if(mx){cs.forEach(function(c){c.style.minHeight=mx+'px'});w.style.minHeight=mx+'px';var t=w.querySelector('.lg-bc-track');if(t)t.style.minHeight=mx+'px'}return true}
+  var n=0;function go(){if(eq()||++n>20)return;setTimeout(go,500)}go();setTimeout(eq,1500);setTimeout(eq,3500);
+  var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(eq,200)});
+}();
