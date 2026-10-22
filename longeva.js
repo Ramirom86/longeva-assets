@@ -665,3 +665,9 @@ s.textContent='@media(max-width:767px){#lg-bc-prev,#lg-bc-next,#lg-rsh-prev,#lg-
 '.lg-bc-nav{margin-top:18px!important;gap:0!important}.lg-rsh-controls{margin-top:14px!important;gap:0!important}'+
 '#lg-body-changes .lg-bc-track-wrap,#lg-rsh-track{touch-action:pan-y}}';
 document.head.appendChild(s)}();
+
+/* LONGEVA · celular: menos espacio en "Qué hace en tu cuerpo" e "Investigación" */
+!function(){if(document.getElementById('lg-tight-css'))return;var s=document.createElement('style');s.id='lg-tight-css';
+s.textContent='@media(max-width:767px){#lg-researchers{padding-top:36px!important;padding-bottom:32px!important}#lg-researchers .lg-rsh-header{margin-bottom:18px!important}#lg-researchers .lg-rsh-title{font-size:24px!important}#lg-researchers .lg-rsh-slide{gap:14px!important}#lg-researchers .lg-rsh-photo,#lg-researchers .lg-rsh-photo-wrap{height:240px!important}#lg-researchers .lg-rsh-photo-wrap>.lg-tl{height:100%!important;min-height:0!important}#lg-researchers .lg-rsh-content{padding:6px 12px 6px!important}#lg-researchers .lg-rsh-journal{margin-bottom:10px!important}#lg-researchers .lg-rsh-quote{font-size:18px!important;line-height:1.45!important;margin-bottom:18px!important}#lg-researchers .lg-rsh-role{margin-bottom:12px!important}#lg-researchers .lg-rsh-inner>p{margin-top:18px!important}'+
+'#lg-body-changes{padding-top:44px!important;padding-bottom:36px!important}#lg-body-changes .lg-bc-hdr{margin-bottom:24px!important}#lg-body-changes .lg-bc-sub{font-size:14px!important;line-height:1.5!important}#lg-body-changes .lg-bc-footer{margin-top:22px!important}#lg-body-changes .lg-bc-footnote{margin-top:10px!important}}';
+document.head.appendChild(s);setTimeout(function(){window.dispatchEvent(new Event('resize'))},300)}();
