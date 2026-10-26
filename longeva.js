@@ -705,3 +705,23 @@ document.head.appendChild(s);setTimeout(function(){window.dispatchEvent(new Even
   }
   run();setTimeout(run,600);setTimeout(run,1500);setTimeout(run,3000);
 }();
+
+/* LONGEVA · primera pantalla del producto en celular: galería más baja, tarjetas debajo del botón */
+!function(){
+  if(!/\/producto|\/products|\/p\//.test(location.pathname))return;
+  var st=document.createElement("style");st.id="lg-fold-css";
+  st.textContent="@media(max-width:767px){.template-product .js-swiper-product{min-height:0!important}"+
+  ".js-swiper-product .js-product-slide-link{padding-bottom:90%!important;background:#f7f3ec}"+
+  ".js-swiper-product .js-product-slide-img{width:100%!important;height:100%!important;object-fit:contain!important;top:0!important;left:0!important;transform:none!important}"+
+  "#lg-steps+#lg-tiles{margin:14px 0 4px!important}}";
+  document.head.appendChild(st);
+  function mv(){
+    if(window.innerWidth>767)return;
+    var t=document.getElementById("lg-tiles"),s=document.getElementById("lg-steps");
+    if(!t||!s)return;
+    if(s.nextElementSibling!==t)s.parentNode.insertBefore(t,s.nextSibling);
+    var lk=document.getElementById("lgx-open-prod");
+    if(lk&&t.nextElementSibling!==lk)t.parentNode.insertBefore(lk,t.nextSibling);
+  }
+  var n=0,iv=setInterval(function(){mv();if(++n>16)clearInterval(iv)},400);
+}();
