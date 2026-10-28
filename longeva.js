@@ -409,7 +409,7 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
 /* LONGEVA · ilustraciones en "¿Qué hace en tu cuerpo?" */
 !function(){
   var BASE=window._lgBcBase||('https://cdn.jsdelivr.net/gh/Ramirom86/longeva-assets@'+(window._lgV||'main')+'/');
-  var IM=['lg-hora08.mp4','etapa-1-card.webp','etapa-2-card.webp','etapa-4-card.webp','etapa-5-card.webp','lg-dia365.mp4'];
+  var IM=['lg-hora08.mp4','lg-etapa1.mp4','lg-etapa2.mp4','lg-etapa4.mp4','lg-etapa5.mp4','lg-dia365.mp4'];
   var ALT=['Urolitina A llegando a la sangre','Mitocondria gastada siendo reciclada','Mitocondrias nuevas produciendo energía','Fibras musculares con energía de las mitocondrias','Reloj de arena con energía que no se agota','Célula renovada'];
   if(!document.getElementById('lg-bcm-css')){var st=document.createElement('style');st.id='lg-bcm-css';
   st.textContent='.lg-bc-media{position:relative;margin:-28px -26px 18px;height:170px;overflow:hidden;border-radius:18px 18px 0 0;background:#1a4d2e}'+
