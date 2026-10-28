@@ -711,7 +711,7 @@ document.head.appendChild(s);setTimeout(function(){window.dispatchEvent(new Even
   if(!/\/producto|\/products|\/p\//.test(location.pathname))return;
   var st=document.createElement("style");st.id="lg-fold-css";
   st.textContent="@media(max-width:767px){.template-product .js-swiper-product{min-height:0!important}"+
-  ".js-swiper-product .js-product-slide-link{padding-bottom:90%!important;background:#f7f3ec}"+
+  ".js-swiper-product .js-product-slide-link{padding-bottom:100%!important;background:#f7f3ec}"+
   ".js-swiper-product .js-product-slide-img{width:100%!important;height:100%!important;object-fit:contain!important;top:0!important;left:0!important;transform:none!important}"+
   "#lg-steps+#lg-tiles{margin:14px 0 4px!important}}";
   document.head.appendChild(st);
