@@ -732,3 +732,39 @@ document.head.appendChild(s);setTimeout(function(){window.dispatchEvent(new Even
   }
   var n=0,iv=setInterval(function(){mv();if(++n>16)clearInterval(iv)},400);
 }();
+
+/* LONGEVA · "Lo que pagás de más" frente a la importada (precio ML oct-2026) */
+!function(){
+  if(!/\/producto|\/products|\/p\//.test(location.pathname))return;
+  if(document.getElementById("lg-cost"))return;
+  var st=document.createElement("style");st.id="lg-cost-css";
+  st.textContent="#lg-cost{background:#0d2318;color:#fff;padding:56px 0 52px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;width:100%}"+
+  "#lg-cost *{box-sizing:border-box}.lgk-in{max-width:580px;margin:0 auto;padding:0 18px}"+
+  ".lgk-k{display:block;text-align:center;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#c9a84c;margin-bottom:10px}"+
+  ".lgk-t{font-family:Georgia,'Times New Roman',serif;font-size:clamp(23px,4vw,32px);font-weight:700;text-align:center;margin:0 0 28px;line-height:1.2;color:#fff;text-wrap:balance}"+
+  ".lgk-g{display:grid;grid-template-columns:1fr 1fr;gap:10px}"+
+  ".lgk-c{border-radius:14px;padding:18px 14px;text-align:center}"+
+  ".lgk-c.imp{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}"+
+  ".lgk-c.lg{background:#f8f6f1;color:#0d2318;border:2px solid #c9a84c}"+
+  ".lgk-n{font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:10px;opacity:.85}"+
+  ".lgk-p{font-family:Georgia,serif;font-size:clamp(22px,6vw,28px);font-weight:700;line-height:1}"+
+  ".lgk-u{font-size:12px;margin-top:4px;opacity:.75}"+
+  ".lgk-c ul{list-style:none;margin:14px 0 0;padding:0;font-size:12.5px;line-height:1.45;text-align:left}"+
+  ".lgk-c li{padding:3px 0 3px 18px;position:relative}.lgk-c li:before{position:absolute;left:0;top:3px;font-weight:700}"+
+  ".lgk-c.imp li:before{content:'\\2013';color:rgba(255,255,255,.5)}.lgk-c.lg li:before{content:'\\2713';color:#1a4d2e}"+
+  ".lgk-s{margin:22px 0 0;text-align:center;font-size:15px;line-height:1.5;color:rgba(255,255,255,.9)}"+
+  ".lgk-s b{display:block;font-family:Georgia,serif;font-size:clamp(28px,8vw,38px);color:#c9a84c;margin:4px 0}"+
+  ".lgk-b{display:block;width:100%;max-width:360px;margin:22px auto 0;background:#c9a84c;color:#0d2318!important;text-align:center;font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:15px 12px;border-radius:10px;text-decoration:none!important;border:0;cursor:pointer}"+
+  ".lgk-f{margin:16px 0 0;text-align:center;font-size:11px;line-height:1.5;color:rgba(255,255,255,.45)}";
+  document.head.appendChild(st);
+  var d=document.createElement("section");d.id="lg-cost";
+  d.innerHTML='<div class="lgk-in"><span class="lgk-k">Lo que pagás de más</span><h2 class="lgk-t">La misma dosis de urolitina A, sin pagar la importación</h2>'+
+  '<div class="lgk-g"><div class="lgk-c imp"><div class="lgk-n">Urolitina A importada</div><div class="lgk-p">$245.000</div><div class="lgk-u">por mes</div><ul><li>500 mg por día</li><li>Sin magnesio</li></ul></div>'+
+  '<div class="lgk-c lg"><div class="lgk-n">LONGEVA · Plan 4 meses</div><div class="lgk-p">$103.975</div><div class="lgk-u">por mes</div><ul><li>500 mg por día</li><li>+ 300 mg de glicinato de magnesio</li><li>Garantía de 120 días</li></ul></div></div>'+
+  '<p class="lgk-s">En los 4 meses que duraron los estudios ahorrás<b>$564.100</b>y además sumás magnesio.</p>'+
+  '<button type="button" class="lgk-b">Reservar mi precio de lanzamiento</button>'+
+  '<p class="lgk-f">Referencia: urolitina A importada, 500 mg por porción, 30 porciones, publicada a $245.000 en Mercado Libre Argentina (octubre de 2026). Plan 4 meses LONGEVA: $415.900 en total.</p></div>';
+  d.querySelector(".lgk-b").addEventListener("click",function(e){e.preventDefault();var p=document.getElementById("lg-pricing")||document.querySelector(".js-product-form");if(p)p.scrollIntoView({behavior:"smooth",block:"center"})});
+  function place(){var c=document.getElementById("lg-compare");if(!c||!c.parentNode)return false;if(c.previousElementSibling!==d)c.parentNode.insertBefore(d,c);return true}
+  var n=0;place();var iv=setInterval(function(){place();if(++n>30)clearInterval(iv)},400);
+}();
