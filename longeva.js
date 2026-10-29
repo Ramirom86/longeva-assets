@@ -102,6 +102,7 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
   css.textContent=
   "#lg-pricing{margin:4px 0 18px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a}"+
   "#lg-pricing *{box-sizing:border-box}"+
+  ".lg-attr{display:flex;flex-wrap:wrap;gap:6px 14px;margin:12px 0 2px;font-size:12.5px;line-height:1.35;color:#3d4a40}.lg-attr span{display:inline-flex;align-items:center;gap:5px}.lg-attr span:before{content:\"\";width:6px;height:6px;border-radius:50%;background:#1a4d2e;flex:none}.lg-attr-link{color:#8a6d2b!important;text-decoration:underline!important;text-underline-offset:2px;font-weight:600}"+
   ".lg-pr-k{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8a6d2b;margin:0 0 10px;display:flex;align-items:center;gap:8px}"+
   ".lg-pr-k::after{content:'';flex:1;height:1px;background:#e6dccb}"+
   ".lg-opt{position:relative;display:block;border:1.5px solid #e0d9ce;border-radius:12px;padding:15px 16px 14px 46px;margin-bottom:10px;background:#fff;cursor:pointer;transition:border-color .2s,box-shadow .2s,background .2s}"+
@@ -183,9 +184,11 @@ insert();setTimeout(insert,800);setTimeout(insert,2000);
     d.innerHTML='<p class="lg-pr-k">Precio de lanzamiento</p>'+
     '<div class="lg-opt on" data-k="plan" role="radio" aria-checked="true" tabindex="0"><span class="lg-tag">El período de los estudios</span><div class="lg-opt-top"><div class="lg-opt-n">Plan 4 meses<small>4 frascos · $103.975 por mes<br>Menos de $3.500 por día</small></div><div class="lg-opt-p"><s>$519.600</s>$415.900</div></div><div class="lg-opt-d"><b>3 cuotas sin interés de $138.633</b> · o $374.310 por transferencia<span class="lg-save">Ahorrás 20%</span><br><span class="lg-gline">&#10003; Garantía de 120 días: si no estás conforme, te devolvemos el 100%</span><span class="lg-rline">Cada cuerpo responde a su ritmo: los cambios son internos y graduales. Por eso el plan cubre los 4 meses de los estudios.</span></div></div>'+
     '<div class="lg-opt" data-k="uno" role="radio" aria-checked="false" tabindex="0"><div class="lg-opt-top"><div class="lg-opt-n">1 frasco<small>60 cápsulas · 1 mes</small></div><div class="lg-opt-p">$129.900</div></div><div class="lg-opt-d">o <b>$116.910</b> por transferencia</div></div>'+
+    '<div class="lg-attr"><span>Sin estimulantes</span><span>Urolitina A al 99,6%, analizada por HPLC</span><a href="#lg-ficha" class="lg-attr-link">Ver información nutricional</a></div>'+
     '<p class="lg-pr-note">Cupo de lanzamiento: 100 planes. La venta abre con la aprobación de ANMAT; hoy reservás tu precio sin pagar nada.</p>';
     f.parentNode.insertBefore(d,f);document.documentElement.classList.add("lg-pp");
     d.addEventListener("click",function(e){var o=e.target.closest(".lg-opt");if(!o)return;sel=o.getAttribute("data-k");[].forEach.call(d.querySelectorAll(".lg-opt"),function(x){var on=x===o;x.classList.toggle("on",on);x.setAttribute("aria-checked",on)})});
+    d.addEventListener("click",function(e){var l=e.target.closest&&e.target.closest(".lg-attr-link");if(!l)return;e.preventDefault();var fi=document.getElementById("lg-ficha");if(!fi)return;var sm=[].filter.call(fi.querySelectorAll("summary"),function(x){return /nutricional/i.test(x.textContent)})[0];if(sm&&sm.parentNode&&sm.parentNode.tagName==="DETAILS")sm.parentNode.open=true;(sm||fi).scrollIntoView({behavior:"smooth",block:"center"})});
     d.addEventListener("keydown",function(e){if((e.key==="Enter"||e.key===" ")&&e.target.classList.contains("lg-opt")){e.preventDefault();e.target.click()}});
     var sc=document.getElementById("lg-tb-scarcity");if(sc)sc.innerHTML='<span id="lg-tb-dot"></span>Cupo de lanzamiento: <strong>100 planes</strong> · Sin compromiso';
   }
