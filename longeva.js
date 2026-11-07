@@ -808,3 +808,30 @@ document.head.appendChild(s);setTimeout(function(){window.dispatchEvent(new Even
   function place(){var f=document.getElementById("lg-faq");if(!f||!f.parentNode)return false;if(f.previousElementSibling!==d)f.parentNode.insertBefore(d,f);return true}
   var n=0;place();var iv=setInterval(function(){place();if(++n>30)clearInterval(iv)},400);
 }();
+
+/* LONGEVA · Video "Qué pasa después de tomarla" (recorrido de la urolitina A) */
+!function(){
+  if(!/\/producto|\/products|\/p\//.test(location.pathname))return;
+  if(document.getElementById("lg-recorrido"))return;
+  var BASE=window._lgBcBase||('https://cdn.jsdelivr.net/gh/Ramirom86/longeva-assets@'+(window._lgV||'main')+'/');
+  var st=document.createElement("style");st.id="lg-recorrido-css";
+  st.textContent="#lg-recorrido{margin:26px 0 8px;text-align:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}"+
+  ".lgr-k{display:block;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8a6d2b;margin-bottom:6px}"+
+  ".lgr-t{font-family:Georgia,'Times New Roman',serif;font-size:22px;font-weight:700;color:#0d2318;margin:0 0 14px;line-height:1.25}"+
+  ".lgr-v{position:relative;width:100%;max-width:480px;margin:0 auto;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:#0d2318;box-shadow:0 18px 40px -26px rgba(13,35,24,.55)}"+
+  ".lgr-v video{width:100%;height:100%;object-fit:cover;display:block}"+
+  ".lgr-n{font-size:12px;color:#6b776f;margin:8px 0 0}";
+  document.head.appendChild(st);
+  var d=document.createElement("div");d.id="lg-recorrido";
+  d.innerHTML='<span class="lgr-k">Cómo actúa</span><h3 class="lgr-t">Qué pasa después de tomarla</h3>'+
+  '<div class="lgr-v"><video muted loop playsinline preload="none" poster="'+BASE+'lg-urolitina-recorrido.jpg" aria-label="Animación: la urolitina A se absorbe, llega a tus células y activa el reciclaje de las mitocondrias dañadas"></video></div>'+
+  '<p class="lgr-n">Ilustración animada del mecanismo estudiado.</p>';
+  var v=d.querySelector("video"),loaded=false;
+  function load(){if(loaded)return;loaded=true;v.src=BASE+"lg-urolitina-recorrido.mp4"}
+  if("IntersectionObserver"in window){
+    new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)load()})},{rootMargin:"400px 0px"}).observe(d);
+    new IntersectionObserver(function(es){es.forEach(function(e){if(e.intersectionRatio>=.4){load();var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()})},{threshold:[0,.4]}).observe(v);
+  }else{load();v.autoplay=true}
+  function place(){var a=document.getElementById("lg-tiles")||document.getElementById("lg-steps");if(!a||!a.parentNode)return false;var nx=a.nextElementSibling;if(nx&&nx.id==="lgx-open-prod")a=nx;if(a.nextElementSibling!==d)a.parentNode.insertBefore(d,a.nextSibling);return true}
+  var n=0;place();var iv=setInterval(function(){place();if(++n>30)clearInterval(iv)},400);
+}();
