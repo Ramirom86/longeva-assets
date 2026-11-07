@@ -824,10 +824,10 @@ document.head.appendChild(s);setTimeout(function(){window.dispatchEvent(new Even
   document.head.appendChild(st);
   var d=document.createElement("div");d.id="lg-recorrido";
   d.innerHTML='<span class="lgr-k">Cómo actúa</span><h3 class="lgr-t">Qué pasa después de tomarla</h3>'+
-  '<div class="lgr-v"><video muted loop playsinline preload="none" poster="'+BASE+'lg-urolitina-recorrido.jpg" aria-label="Animación: la urolitina A se absorbe, llega a tus células y activa el reciclaje de las mitocondrias dañadas"></video></div>'+
+  '<div class="lgr-v"><video muted loop playsinline preload="none" poster="'+BASE+'lg-recorrido-hd.jpg" aria-label="Animación: la urolitina A se absorbe, llega a tus células y activa el reciclaje de las mitocondrias dañadas"></video></div>'+
   '<p class="lgr-n">Ilustración animada del mecanismo estudiado.</p>';
   var v=d.querySelector("video"),loaded=false;
-  function load(){if(loaded)return;loaded=true;v.src=BASE+"lg-urolitina-recorrido.mp4"}
+  function load(){if(loaded)return;loaded=true;v.src=BASE+"lg-recorrido-hd.mp4"}
   if("IntersectionObserver"in window){
     new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)load()})},{rootMargin:"400px 0px"}).observe(d);
     new IntersectionObserver(function(es){es.forEach(function(e){if(e.intersectionRatio>=.4){load();var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()})},{threshold:[0,.4]}).observe(v);
